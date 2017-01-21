@@ -30,6 +30,12 @@ if (!('webkitSpeechRecognition' in window)) {
   }
   recognition.onend = function() {
     console.log("Ended Voice Recognition");
+    $.post(
+      "/tests/send_message.js",
+      {
+        transcript: final_transcript,
+      }
+    );
     console.log(final_transcript);
   }
   function startRecognition(event){

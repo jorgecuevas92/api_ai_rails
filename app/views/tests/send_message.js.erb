@@ -1,0 +1,9 @@
+console.log("Recibido de Rails");
+var speech = "<%= escape_javascript(@verbal_response) %>";
+console.log(speech);
+
+var msg = new SpeechSynthesisUtterance();
+msg.text = speech;
+msg.lang = "es"
+
+speechSynthesis.speak(msg);
